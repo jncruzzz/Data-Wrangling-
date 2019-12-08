@@ -1,0 +1,7 @@
+import pandas as pd
+bare = {'Box': ['Box1', 'Box1', 'Box1', 'Box2', 'Box2', 'Box2'], 'Dimension ': ['Length', 'Width', 'Height', 'Length','Width', 'Height'], 'Value': [6, 4, 2, 5, 3, 4]}
+z = pd.DataFrame(bare, columns=['Box', 'Dimension ', 'Value'])
+tidy=z.pivot_table(index=['Box'], columns='Dimension ', values='Value')
+tidy=z.pivot_table(index=['Box'], columns='Dimension ', values='Value').reset_index()
+J = [48, 60]
+tidy['Volume']=J

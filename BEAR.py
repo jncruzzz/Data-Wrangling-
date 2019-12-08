@@ -1,0 +1,14 @@
+import pandas as pd
+bare = {'Student': ['Ice Bear', 'Panda', 'Grizzly'], 'Math': [80, 95, 79]}
+df = {'Student': ['Ice Bear', 'Panda', 'Grizzly'], 'Electronics': [85, 81, 83]}
+bf = {'Student': ['Ice Bear', 'Panda', 'Grizzly'], 'GEAS': [90, 79, 93]}
+af = {'Student': ['Ice Bear', 'Panda', 'Grizzly'], 'ESAT': [93, 89, 88]}
+z = pd.DataFrame(bare, columns=['Student', 'Math'])
+x = pd.DataFrame(df, columns=['Student', 'Electronics'])
+c = pd.DataFrame(bf, columns=['Student', 'GEAS'])
+v = pd.DataFrame(af, columns=['Student', 'ESAT'])
+q = pd.merge(z, x)
+w = pd.merge(c, v)
+o = pd.merge(q, w)
+A = pd.melt(o, id_vars = 'Student', value_vars = ['Math', 'Electronics', 'GEAS', 'ESAT'])
+T = A.rename(columns = {'Variable':'Subject','Value':'Grades'})
